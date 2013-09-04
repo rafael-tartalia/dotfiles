@@ -1,1 +1,7 @@
+# aliases
 alias xclip="xclip -sel clip"
+
+# path definitions
+if [ -d ~/futils ]; then
+   export PATH=$PATH:~/futils
+fi
