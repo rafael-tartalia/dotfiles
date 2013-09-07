@@ -54,6 +54,9 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
+# Configure JAVA_HOME
+# export JAVA_HOME=/usr/local/jdk1.6.0_45
+
 # Configure PATH
 #  - These are line by line so that you can kill one without affecting the others.
 #  - Lowest priority first, highest priority last.
@@ -62,4 +65,8 @@ export PATH=$HOME/bin:$PATH
 export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
+
+# Add JAVA_HOME to PATH only if the variable was defined
+if [ ! -z "$JAVA_HOME" ]; then
+    export PATH=$JAVA_HOME/bin:$PATH
+fi
