@@ -82,3 +82,16 @@
 (require 'jade-mode)    
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+
+
+;; ------------------------------------------
+;; -- Emmet mode configuration
+;;    https://github.com/smihica/emmet-mode
+;; -----------------------------------------
+(add-to-list 'load-path "~/.emacs.d/emmet-mode") ;; github.com/brianc/jade-mode
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2))) ;; indent 2 spaces.
+(setq emmet-move-cursor-between-quotes t) ;; default nil
+
