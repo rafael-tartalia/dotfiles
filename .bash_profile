@@ -55,7 +55,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Configure JAVA_HOME
-# export JAVA_HOME=/usr/local/jdk1.6.0_45
+#export JAVA_HOME=/usr/local/jdk1.6.0_45
 
 # Configure PATH
 #  - These are line by line so that you can kill one without affecting the others.
