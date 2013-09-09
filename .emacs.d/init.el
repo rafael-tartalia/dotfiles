@@ -83,7 +83,6 @@
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
-
 ;; ------------------------------------------
 ;; -- Emmet mode configuration
 ;;    https://github.com/smihica/emmet-mode
@@ -92,6 +91,35 @@
 (require 'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-(add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2))) ;; indent 2 spaces.
+(add-hook 'emmet-mode-hook (lambda () 
+			     (setq emmet-indentation 2))) ;; indent 2 spaces.
 (setq emmet-move-cursor-between-quotes t) ;; default nil
 
+;; ---------------------------------------------
+;; -- Autopair mode configuration
+;;    https://github.com/capitaomorte/autopair
+;; ---------------------------------------------
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
+
+;; -----------------------------------------------
+;; -- Yasnippet configuration
+;;    https://github.com/capitaomorte/yasnippet/
+;; -----------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/yasnippet")
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"            ;; personal snippets
+        "~/.emacs.d/yasnippet/snippets"  ;; default collection
+        ))
+(yas-global-mode 1)
+(setq yas/prompt-functions '(yas/ido-prompt))
+
+;; Load html-mode snippets with sgml-mode-hook
+(add-hook 'sgml-mode-hook
+         #'(lambda ()
+              (setq yas/mode-symbol 'html-mode)))
+;; ...
+(add-hook 'css-mode-hook
+         #'(lambda ()
+	     (setq yas/mode-symbol 'css-mode)))
