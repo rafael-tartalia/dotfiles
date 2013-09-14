@@ -72,6 +72,8 @@
 (global-set-key "\M-d" 'delete-word)
 (global-set-key "\M-h" 'backward-delete-word)
 (global-set-key "\M-u" 'zap-to-char)
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
+(global-set-key (kbd "C-x b") 'buffer-menu)
 
 ;; ---------------------------
 ;; -- JS Mode configuration --
@@ -119,7 +121,19 @@
 (add-hook 'sgml-mode-hook
          #'(lambda ()
               (setq yas/mode-symbol 'html-mode)))
-;; ...
 (add-hook 'css-mode-hook
          #'(lambda ()
 	     (setq yas/mode-symbol 'css-mode)))
+
+;; Navbar configuration
+(add-to-list 'load-path "~/.emacs.d/emacs-nav-49")
+(require 'nav)
+(nav-disable-overeager-window-splitting)
+(global-set-key [f8] 'nav-toggle)
+
+;; Solarizing emacs
+(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
+(require 'color-theme)
+(color-theme-initialize)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'solarized-dark t)

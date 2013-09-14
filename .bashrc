@@ -162,6 +162,10 @@ shopt -s histappend
 # See:  http://www.ukuug.org/events/linux2003/papers/bash_tips/
 PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\] "
 
+# Terminal solarization
+export TERM=xterm-256color 
+eval `dircolors ~/.dircolors/dircolors.256dark`
+
 ## -----------------------
 ## -- 2) Set up aliases --
 ## -----------------------
