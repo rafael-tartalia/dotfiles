@@ -73,7 +73,6 @@
 (global-set-key "\M-h" 'backward-delete-word)
 (global-set-key "\M-u" 'zap-to-char)
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
-(global-set-key (kbd "C-x b") 'buffer-menu)
 
 ;; ---------------------------
 ;; -- JS Mode configuration --
