@@ -171,7 +171,7 @@ eval `dircolors ~/.dircolors/dircolors.256dark`
 ## -----------------------
 
 # 2.1) Safety
-alias rm="rm -iI"
+alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 set -o noclobber
