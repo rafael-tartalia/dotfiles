@@ -195,7 +195,7 @@ alias treeacl='tree -A -C -L 2'
 alias em='emacs -nw'     # No X11 windows
 alias eqq='emacs -nw -Q' # No config and no X11
 export EDITOR='emacs -nw'
-export VISUAL='emacs -nw' 
+export VISUAL='emacs -nw'
 
 # 2.4) grep options
 export GREP_OPTIONS='--color=auto'
@@ -221,6 +221,11 @@ if [ -s ~/.nvm/nvm.sh ]; then
     source ~/.nvm/nvm.sh
     nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
 fi
+
+# 2.8) mongodb alias
+alias mongostart="sudo mongod --config /etc/mongodb.conf & tail -f /var/log/mongodb/mongodb.log &"
+alias mongorepstart="sudo mongod --repair --dbpath /etc/mongodb.conf"
+
 
 ## ------------------------------
 ## -- 3) User-customized code  --
