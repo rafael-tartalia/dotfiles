@@ -223,8 +223,10 @@ if [ -s ~/.nvm/nvm.sh ]; then
 fi
 
 # 2.8) mongodb alias
-alias mongostart="sudo mongod --config /etc/mongodb.conf & tail -f /var/log/mongodb/mongodb.log &"
-alias mongorepstart="sudo mongod --repair --dbpath /etc/mongodb.conf"
+alias mongostart="sudo mongod --config /etc/mongodb.conf --fork"
+alias mongostop="sudo mongod --config /etc/mongodb.conf --shutdown"
+alias mongolog="sudo tail -f /var/log/mongodb/mongodb.log"
+alias mongorepair="sudo mongod --repair --dbpath /etc/mongodb.conf"
 
 
 ## ------------------------------
